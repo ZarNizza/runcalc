@@ -102,6 +102,12 @@ function rCalc(state, action) {
         strLength: action.value,
       };
     }
+    case "rDT": {
+      return { ...state, rDT: action.value };
+    }
+    case "rCS": {
+      return { ...state, rCS: action.value };
+    }
     default:
       return { state };
   }
@@ -162,14 +168,26 @@ export default function RunCalc() {
     pace: 5,
     cadense: 167,
     strLength: 1,
+    rDT: "dist",
+    rCS: "cadense",
   });
+
   return (
     <table className="runCalc">
       <caption>- Run Calc -</caption>
       <tbody>
         <tr>
           <td>
-            <input type="radio" name="distTime" id="rD" value="dist" defaultChecked />
+            <input
+              type="radio"
+              name="distTime"
+              id="rD"
+              value="dist"
+              checked={state.rDT === "dist"}
+              onChange={(event) => {
+                dispatch({ type: "rDT", value: event.target.value });
+              }}
+            />
           </td>
           <td>
             <label htmlFor="rD">путь: </label>
@@ -191,7 +209,16 @@ export default function RunCalc() {
         </tr>
         <tr>
           <td>
-            <input type="radio" name="distTime" id="rT" value="time" />
+            <input
+              type="radio"
+              name="distTime"
+              id="rT"
+              value="time"
+              checked={state.rDT === "time"}
+              onChange={(event) => {
+                dispatch({ type: "rDT", value: event.target.value });
+              }}
+            />
           </td>
           <td>
             <label htmlFor="rT">время: </label>
@@ -273,7 +300,16 @@ export default function RunCalc() {
         </tr>
         <tr>
           <td>
-            <input type="radio" name="step" id="rC" value="cadense" defaultChecked />
+            <input
+              type="radio"
+              name="step"
+              id="rC"
+              value="cadense"
+              checked={state.rCS === "cadense"}
+              onChange={(event) => {
+                dispatch({ type: "rCS", value: event.target.value });
+              }}
+            />
           </td>
           <td>
             <label htmlFor="rC">каденс: </label>
@@ -295,7 +331,16 @@ export default function RunCalc() {
         </tr>
         <tr>
           <td>
-            <input type="radio" name="step" id="rS" value="strLength" />
+            <input
+              type="radio"
+              name="step"
+              id="rS"
+              value="strLength"
+              checked={state.rCS === "strLength"}
+              onChange={(event) => {
+                dispatch({ type: "rCS", value: event.target.value });
+              }}
+            />
           </td>
           <td>
             <label htmlFor="rS">длШага: </label>
