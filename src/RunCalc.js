@@ -173,194 +173,206 @@ export default function RunCalc() {
   });
 
   return (
-    <table className="runCalc">
-      <caption>- Run Calc -</caption>
-      <tbody>
-        <tr>
-          <td>
-            <input
-              type="radio"
-              name="distTime"
-              id="rD"
-              value="dist"
-              checked={state.rDT === "dist"}
-              onChange={(event) => {
-                dispatch({ type: "rDT", value: event.target.value });
-              }}
-            />
-          </td>
-          <td>
-            <label htmlFor="rD">путь: </label>
-          </td>
-          <td>
-            <input
-              id="distance"
-              className="f"
-              value={state.dist}
-              onChange={(event) => {
-                dispatch({ type: "dist", value: event.target.value });
-              }}
-              onKeyDown={handleKeyPress}
-              type="text"
-              maxLength="4"
-            />{" "}
-          </td>
-          <td>км</td>
-        </tr>
-        <tr>
-          <td>
-            <input
-              type="radio"
-              name="distTime"
-              id="rT"
-              value="time"
-              checked={state.rDT === "time"}
-              onChange={(event) => {
-                dispatch({ type: "rDT", value: event.target.value });
-              }}
-            />
-          </td>
-          <td>
-            <label htmlFor="rT">время: </label>
-          </td>
-          <td>
-            <input
-              id="time"
-              className="f"
-              value={state.time}
-              onChange={(event) => {
-                dispatch({ type: "time", value: event.target.value });
-              }}
-              onKeyDown={handleKeyPress}
-              type="text"
-              maxLength="4"
-            />{" "}
-          </td>
-          <td>мин</td>
-        </tr>
-        <tr>
-          <td> </td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td>м/с: </td>
-          <td>
-            <input
-              id="mSpeed"
-              className="f"
-              value={state.mSpeed}
-              onChange={(event) => {
-                dispatch({ type: "mSpeed", value: event.target.value });
-              }}
-              onKeyDown={handleKeyPress}
-              type="text"
-              maxLength="4"
-            />{" "}
-          </td>
-          <td>м/с</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td>км/ч: </td>
-          <td>
-            <input
-              id="kSpeed"
-              className="f"
-              value={state.kSpeed}
-              onChange={(event) => {
-                dispatch({ type: "kSpeed", value: event.target.value });
-              }}
-              onKeyDown={handleKeyPress}
-              type="text"
-              maxLength="4"
-            />{" "}
-          </td>
-          <td>км/ч</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td>темп: </td>
-          <td>
-            <input
-              id="pace"
-              className="f"
-              value={state.pace}
-              onChange={(event) => {
-                dispatch({ type: "pace", value: event.target.value });
-              }}
-              onKeyDown={handleKeyPress}
-              type="text"
-              maxLength="4"
-            />{" "}
-          </td>
-          <td>мин/км</td>
-        </tr>
-        <tr>
-          <td> </td>
-        </tr>
-        <tr>
-          <td>
-            <input
-              type="radio"
-              name="step"
-              id="rC"
-              value="cadense"
-              checked={state.rCS === "cadense"}
-              onChange={(event) => {
-                dispatch({ type: "rCS", value: event.target.value });
-              }}
-            />
-          </td>
-          <td>
-            <label htmlFor="rC">каденс: </label>
-          </td>
-          <td>
-            <input
-              id="cadense"
-              className="f"
-              value={state.cadense}
-              onChange={(event) => {
-                dispatch({ type: "cadense", value: event.target.value });
-              }}
-              onKeyDown={handleKeyPress}
-              type="text"
-              maxLength="4"
-            />{" "}
-          </td>
-          <td>шаг/мин</td>
-        </tr>
-        <tr>
-          <td>
-            <input
-              type="radio"
-              name="step"
-              id="rS"
-              value="strLength"
-              checked={state.rCS === "strLength"}
-              onChange={(event) => {
-                dispatch({ type: "rCS", value: event.target.value });
-              }}
-            />
-          </td>
-          <td>
-            <label htmlFor="rS">длШага: </label>
-          </td>
-          <td>
-            <input
-              id="strLength"
-              className="f"
-              value={state.strLength}
-              onChange={(event) => {
-                dispatch({ type: "strLength", value: event.target.value });
-              }}
-              onKeyDown={handleKeyPress}
-              type="text"
-              maxLength="4"
-            />{" "}
-          </td>
-          <td>м</td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+      <table className="runCalc">
+        <caption>- Run Calc -</caption>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="distTime"
+                id="rD"
+                value="dist"
+                checked={state.rDT === "dist"}
+                onChange={(event) => {
+                  dispatch({ type: "rDT", value: event.target.value });
+                }}
+              />
+            </td>
+            <td>
+              <label htmlFor="rD">distance: </label>
+            </td>
+            <td>
+              <input
+                id="distance"
+                className="f"
+                value={state.dist}
+                onChange={(event) => {
+                  dispatch({ type: "dist", value: event.target.value });
+                }}
+                onKeyDown={handleKeyPress}
+                type="text"
+                maxLength="4"
+              />{" "}
+            </td>
+            <td>km</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="distTime"
+                id="rT"
+                value="time"
+                checked={state.rDT === "time"}
+                onChange={(event) => {
+                  dispatch({ type: "rDT", value: event.target.value });
+                }}
+              />
+            </td>
+            <td>
+              <label htmlFor="rT">time: </label>
+            </td>
+            <td>
+              <input
+                id="time"
+                className="f"
+                value={state.time}
+                onChange={(event) => {
+                  dispatch({ type: "time", value: event.target.value });
+                }}
+                onKeyDown={handleKeyPress}
+                type="text"
+                maxLength="4"
+              />{" "}
+            </td>
+            <td>min</td>
+          </tr>
+          <tr>
+            <td>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td>speed, m/s: </td>
+            <td>
+              <input
+                id="mSpeed"
+                className="f"
+                value={state.mSpeed}
+                onChange={(event) => {
+                  dispatch({ type: "mSpeed", value: event.target.value });
+                }}
+                onKeyDown={handleKeyPress}
+                type="text"
+                maxLength="4"
+              />{" "}
+            </td>
+            <td>m/s</td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td>speed, km/h: </td>
+            <td>
+              <input
+                id="kSpeed"
+                className="f"
+                value={state.kSpeed}
+                onChange={(event) => {
+                  dispatch({ type: "kSpeed", value: event.target.value });
+                }}
+                onKeyDown={handleKeyPress}
+                type="text"
+                maxLength="4"
+              />{" "}
+            </td>
+            <td>km/h</td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td>pace: </td>
+            <td>
+              <input
+                id="pace"
+                className="f"
+                value={state.pace}
+                onChange={(event) => {
+                  dispatch({ type: "pace", value: event.target.value });
+                }}
+                onKeyDown={handleKeyPress}
+                type="text"
+                maxLength="4"
+              />{" "}
+            </td>
+            <td>min/km</td>
+          </tr>
+          <tr>
+            <td>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="step"
+                id="rC"
+                value="cadense"
+                checked={state.rCS === "cadense"}
+                onChange={(event) => {
+                  dispatch({ type: "rCS", value: event.target.value });
+                }}
+              />
+            </td>
+            <td>
+              <label htmlFor="rC">cadense: </label>
+            </td>
+            <td>
+              <input
+                id="cadense"
+                className="f"
+                value={state.cadense}
+                onChange={(event) => {
+                  dispatch({ type: "cadense", value: event.target.value });
+                }}
+                onKeyDown={handleKeyPress}
+                type="text"
+                maxLength="4"
+              />{" "}
+            </td>
+            <td>step/min</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="step"
+                id="rS"
+                value="strLength"
+                checked={state.rCS === "strLength"}
+                onChange={(event) => {
+                  dispatch({ type: "rCS", value: event.target.value });
+                }}
+              />
+            </td>
+            <td>
+              <label htmlFor="rS">stepLength: </label>
+            </td>
+            <td>
+              <input
+                id="strLength"
+                className="f"
+                value={state.strLength}
+                onChange={(event) => {
+                  dispatch({ type: "strLength", value: event.target.value });
+                }}
+                onKeyDown={handleKeyPress}
+                type="text"
+                maxLength="4"
+              />{" "}
+            </td>
+            <td>m</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <p>
+        Use ArrowUp/Down to select input area.
+        <br />
+        Use radioButtons to fix base data.
+      </p>
+    </>
   );
 }
