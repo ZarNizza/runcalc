@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+  min-width: 70px;
+  min-height: 30px;
+  margin: 10px;
+}
+
+button:hover, a:hover {cursor: pointer;}
+
+.flexcontainer {
+  height: 100vh;
+  display: flex;
+}
+
+.flexinner {
+  margin: auto;
+}
+
+.runCalc {
+padding: 8px;
+border: 1px solid blueviolet;
+}
+
+.runCalc tr, td {
+  border: none;
+}
+.runCalc input {
+  width:70px;
+  text-align: right;
+}
+
+.runCalc caption {
+  color: white;
+  background-color: blueviolet;
+}
