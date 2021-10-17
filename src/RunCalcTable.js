@@ -235,8 +235,8 @@ export default function RCtable(props) {
                 type="radio"
                 name="step"
                 id="rS"
-                value="strLength"
-                checked={state.rCS === "strLength"}
+                value="stepLength"
+                checked={state.rCS === "stepLength"}
                 onChange={(event) => {
                   dispatch({ type: "rCS", value: event.target.value });
                 }}
@@ -247,11 +247,11 @@ export default function RCtable(props) {
             </td>
             <td>
               <input
-                id="strLength"
+                id="stepLength"
                 className="f"
-                value={state.strLength}
+                value={state.stepLength}
                 onChange={(event) => {
-                  dispatch({ type: "strLength", value: event.target.value });
+                  dispatch({ type: "stepLength", value: event.target.value });
                 }}
                 onKeyDown={handleKeyPress}
                 type="text"
@@ -261,12 +261,12 @@ export default function RCtable(props) {
             <td>m</td>
             <td className="sliderTD">
               <Slider
-                value={state.strLength}
+                value={state.stepLength}
                 max="2"
                 step="0.05"
                 marks={{ 0: 0, 1: 1, 2: 2 }}
                 onChange={(value) => {
-                  dispatch({ type: "strLength", value: value });
+                  dispatch({ type: "stepLength", value: value });
                 }}
               />
             </td>

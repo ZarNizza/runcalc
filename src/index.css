@@ -30,8 +30,9 @@ button:hover, a:hover {cursor: pointer;}
 }
 
 .runCalc {
-padding: 8px;
+padding: 8px 15px 25px 8px;
 border: 1px solid blueviolet;
+
 }
 
 .runCalc tr, td {
@@ -50,7 +51,6 @@ border: 1px solid blueviolet;
 .sliderTD {
   width: 300px;
   padding-left: 10px;
-  padding-right: 5px;
 }
 
 .rc-slider-mark {
