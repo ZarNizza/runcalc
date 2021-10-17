@@ -13,13 +13,15 @@ function rCalc(state, action) {
       )
         ? Math.round((action.value * 6000) / state.time) / 100
         : 0;
+      
       return {
         ...state,
         dist: action.value,
         mSpeed: mSpeed(kSpeed),
         kSpeed: kSpeed,
         pace: pace(kSpeed),
-        strLength: strLength(kSpeed, state.cadense),
+        cadense: state.rCS === "stepLength" ? cadenseSL(kSpeed, state.stepLength) : state.cadense,
+        stepLength: state.rCS === "cadense" ? stepLength(kSpeed, state.cadense) : state.stepLength,
       };
     }
     case "time": {
@@ -34,7 +36,8 @@ function rCalc(state, action) {
         mSpeed: mSpeed(kSpeed),
         kSpeed: kSpeed,
         pace: pace(kSpeed),
-        strLength: strLength(kSpeed, state.cadense),
+        cadense: state.rCS === "stepLength" ? cadenseSL(kSpeed, state.stepLength) : state.cadense,
+        stepLength: state.rCS === "cadense" ? stepLength(kSpeed, state.cadense) : state.stepLength,
       };
     }
     case "mSpeed": {
@@ -43,21 +46,25 @@ function rCalc(state, action) {
         : 0;
       return {
         ...state,
-        time: time(kSpeed, state.dist),
+        dist: state.rDT === "time" ? dist(kSpeed, state.time) : state.dist,
+        time: state.rDT === "dist" ? time(kSpeed, state.dist) : state.time,
         mSpeed: action.value,
         kSpeed: kSpeed,
         pace: pace(kSpeed),
-        strLength: strLength(kSpeed, state.cadense),
+        cadense: state.rCS === "stepLength" ? cadenseSL(kSpeed, state.stepLength) : state.cadense,
+        stepLength: state.rCS === "cadense" ? stepLength(kSpeed, state.cadense) : state.stepLength,
       };
     }
     case "kSpeed": {
       return {
         ...state,
-        time: time(action.value, state.dist),
+        dist: state.rDT === "time" ? dist(action.value, state.time) : state.dist,
+        time: state.rDT === "dist" ? time(action.value, state.dist) : state.time,
         mSpeed: mSpeed(action.value),
         kSpeed: action.value,
         pace: pace(action.value),
-        strLength: strLength(action.value, state.cadense),
+        cadense: state.rCS === "stepLength" ? cadenseSL(action.value, state.stepLength) : state.cadense,
+        stepLength: state.rCS === "cadense" ? stepLength(action.value, state.cadense) : state.stepLength,
       };
     }
     case "pace": {
@@ -66,29 +73,33 @@ function rCalc(state, action) {
         : 0;
       return {
         ...state,
-        time: time(kSpeed, state.dist),
+        dist: state.rDT === "time" ? dist(kSpeed, state.time) : state.dist,
+        time: state.rDT === "dist" ? time(kSpeed, state.dist) : state.time,
         mSpeed: mSpeed(kSpeed),
         kSpeed: kSpeed,
         pace: action.value,
-        strLength: strLength(kSpeed, state.cadense),
+        cadense: state.rCS === "stepLength" ? cadenseSL(kSpeed, state.stepLength) : state.cadense,
+        stepLength: state.rCS === "cadense" ? stepLength(kSpeed, state.cadense) : state.stepLength,
       };
     }
     case "cadense": {
       const kSpeed = isFinite(
-        Math.round((action.value * state.strLength * 6) / 10) / 10
+        Math.round((action.value * state.stepLength * 6) / 10) / 10
       )
-        ? Math.round((action.value * state.strLength * 6) / 10) / 10
+        ? Math.round((action.value * state.stepLength * 6) / 10) / 10
         : 0;
       return {
         ...state,
-        time: time(kSpeed, state.dist),
+        dist: state.rDT === "time" ? dist(kSpeed, state.time) : state.dist,
+        time: state.rDT === "dist" ? time(kSpeed, state.dist) : state.time,
         mSpeed: mSpeed(kSpeed),
         kSpeed: kSpeed,
         pace: pace(kSpeed),
         cadense: action.value,
+        stepLength: state.rCS === "cadense" ? stepLength(kSpeed, action.value) : state.stepLength,
       };
     }
-    case "strLength": {
+    case "stepLength": {
       const kSpeed = isFinite(
         Math.round((action.value * state.cadense * 6) / 10) / 10
       )
@@ -96,11 +107,13 @@ function rCalc(state, action) {
         : 0;
       return {
         ...state,
-        time: time(kSpeed, state.dist),
+        dist: state.rDT === "time" ? dist(kSpeed, state.time) : state.dist,
+        time: state.rDT === "dist" ? time(kSpeed, state.dist) : state.time,
         mSpeed: mSpeed(kSpeed),
         kSpeed: kSpeed,
         pace: pace(kSpeed),
-        strLength: action.value,
+        cadense: state.rCS === "stepLength" ? cadenseSL(kSpeed, state.stepLength) : state.cadense,
+        stepLength: action.value,
       };
     }
     case "rDT": {
@@ -112,6 +125,12 @@ function rCalc(state, action) {
     default:
       return { state };
   }
+}
+
+
+function dist(kSpeed, time) {
+  return isFinite(Math.round(time * 10 * kSpeed / 600))
+    ? Math.round(time * 10 * kSpeed / 600) : 0;
 }
 
 function time(kSpeed, dist) {
@@ -132,9 +151,15 @@ function pace(kSpeed) {
     : 0;
 }
 
-function strLength(kSpeed, cadense) {
+function stepLength(kSpeed, cadense) {
   return isFinite(Math.round((kSpeed * 100000) / (cadense * 60)) / 100)
     ? Math.round((kSpeed * 100000) / (cadense * 60)) / 100
+    : 0;
+}
+
+function cadenseSL(kSpeed, stepLength) {
+  return isFinite(Math.round((kSpeed * 100000) / (stepLength * 60)) / 100)
+    ? Math.round((kSpeed * 100000) / (stepLength * 60)) / 100
     : 0;
 }
 
@@ -168,7 +193,7 @@ export default function RunCalc() {
     kSpeed: 12,
     pace: 5,
     cadense: 167,
-    strLength: 1,
+    stepLength: 1,
     rDT: "dist",
     rCS: "cadense",
   });
