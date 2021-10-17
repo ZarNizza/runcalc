@@ -1,4 +1,6 @@
 import { useReducer } from "react";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
 // фикс Путь/Время, Каденс/ДлШага
 // OK - навигация стрелками вверх/вниз
@@ -207,6 +209,17 @@ export default function RunCalc() {
               />{" "}
             </td>
             <td>km</td>
+            <td className="sliderTD">
+              <Slider
+                defaultValue={state.dist}
+                max="20"
+                step="0.1"
+                marks={{0:0, 12:12, 20:20}}
+                onChange={(value) => {
+                  dispatch({ type: "dist", value: value });
+                }}
+              />
+            </td>
           </tr>
           <tr>
             <td>
@@ -238,6 +251,17 @@ export default function RunCalc() {
               />{" "}
             </td>
             <td>min</td>
+            <td className="sliderTD">
+              <Slider
+                defaultValue={state.time}
+                max="120"
+                step="0.1"
+                marks={{0:0, 60:60, 120:120}}
+                onChange={(value) => {
+                  dispatch({ type: "time", value: value });
+                }}
+              />
+            </td>
           </tr>
           <tr>
             <td>
@@ -261,6 +285,17 @@ export default function RunCalc() {
               />{" "}
             </td>
             <td>m/s</td>
+            <td className="sliderTD">
+              <Slider
+                defaultValue={state.mSpeed}
+                max="10"
+                step="0.1"
+                marks={{0:0, 3.3:3.3, 10:10}}
+                onChange={(value) => {
+                  dispatch({ type: "mSpeed", value: value });
+                }}
+              />
+            </td>
           </tr>
           <tr>
             <td> </td>
@@ -279,6 +314,17 @@ export default function RunCalc() {
               />{" "}
             </td>
             <td>km/h</td>
+            <td className="sliderTD">
+              <Slider
+                defaultValue={state.kSpeed}
+                max="20"
+                step="0.1"
+                marks={{0:0, 12:12, 20:20}}
+                onChange={(value) => {
+                  dispatch({ type: "kSpeed", value: value });
+                }}
+              />
+            </td>{" "}
           </tr>
           <tr>
             <td> </td>
@@ -297,6 +343,17 @@ export default function RunCalc() {
               />{" "}
             </td>
             <td>min/km</td>
+            <td className="sliderTD">
+              <Slider
+                defaultValue={state.pace}
+                max="20"
+                step="0.1"
+                marks={{0:0, 5:5, 20:20}}
+                onChange={(value) => {
+                  dispatch({ type: "pace", value: value });
+                }}
+              />
+            </td>
           </tr>
           <tr>
             <td>
@@ -333,6 +390,16 @@ export default function RunCalc() {
               />{" "}
             </td>
             <td>step/min</td>
+            <td className="sliderTD">
+              <Slider
+                defaultValue={state.cadense}
+                max="200"
+                marks={{0:0, 167:167, 200:200}}
+                onChange={(value) => {
+                  dispatch({ type: "cadense", value: value });
+                }}
+              />
+            </td>
           </tr>
           <tr>
             <td>
@@ -364,6 +431,17 @@ export default function RunCalc() {
               />{" "}
             </td>
             <td>m</td>
+            <td className="sliderTD">
+              <Slider
+                defaultValue={state.strLength}
+                max="2"
+                step="0.05"
+                marks={{0:0, 1:1, 2:2}}
+                onChange={(value) => {
+                  dispatch({ type: "strLength", value: value });
+                }}
+              />
+            </td>
           </tr>
         </tbody>
       </table>

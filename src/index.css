@@ -46,3 +46,16 @@ border: 1px solid blueviolet;
   color: white;
   background-color: blueviolet;
 }
+
+.sliderTD {
+  width: 300px;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.rc-slider-mark {
+  top: -2px !important;
+}
+.rc-slider-handle {
+  z-index: 99 !important;
+}
