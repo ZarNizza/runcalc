@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import RCtable from "./RunCalcTable";
 
-// фикс Путь/Время, Каденс/ДлШага
+// OK - фикс Путь/Время, Каденс/ДлШага
 // OK - навигация стрелками вверх/вниз
 // рефакторинг  в стиле REACT
 
