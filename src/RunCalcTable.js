@@ -8,10 +8,10 @@ export default function RCtable(props) {
 
   return (
     <>
-    <h1><span style={{color:"blueviolet"}} >RUN</span><span style={{color:"darkorange"}} >calc</span></h1>
+    <h1><span className="colorBV fat" >RUN</span><span className="colorDO noFat">calc</span></h1>
     <h2 style={{marginTop:"0"}}>Live Speed / Pace / Cadense corellation<br/><br/><br/></h2>
       <table className="runCalc">
-        <caption>- Run Calc -</caption>
+        <caption>- <b>Run</b> Calc -</caption>
         <tbody>
           <tr>
             <td>

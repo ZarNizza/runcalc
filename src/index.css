@@ -70,3 +70,15 @@ h2 {
 h1, h2 {
   text-align: center;
 }
+.colorBV {
+  color:blueviolet;
+}
+.colorDO {
+  color:darkorange;
+}
+.fat {
+  font-weight: 900;
+}
+.noFat {
+  font-weight: 100;
+}
