@@ -288,9 +288,9 @@ export default function RCtable(props) {
       <p>
         You can use ArrowUp/Down to select input area.
         <br />
-        Use radioButtons to fix base data.
+        Use radioButtons and checkBoxses to fix base data.
         <br />
-        Fix Cadense - fix distance & time.
+        Fix distance & time = fix speed group.
       </p>
     </>
   );
