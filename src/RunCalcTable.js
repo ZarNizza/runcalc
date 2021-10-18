@@ -8,26 +8,34 @@ export default function RCtable(props) {
 
   return (
     <>
-    <h1><span className="colorBV fat" >RUN</span><span className="colorDO noFat">calc</span></h1>
-    <h2 style={{marginTop:"0"}}>Live Speed / Pace / Cadense corellation<br/><br/><br/></h2>
+      <h1>
+        <span className="colorBV fat">RUN</span>
+        <span className="colorDO noFat">calc</span>
+      </h1>
+      <h2 style={{ marginTop: "0" }}>
+        Live Speed / Pace / Cadense corellation
+        <br />
+        <br />
+        <br />
+      </h2>
       <table className="runCalc">
-        <caption>- <b>Run</b> Calc -</caption>
+        <caption>
+          - <b>Run</b> Calc -
+        </caption>
         <tbody>
           <tr>
             <td>
               <input
-                type="radio"
-                name="distTime"
-                id="rD"
-                value="dist"
-                checked={state.rDT === "dist"}
+                type="checkbox"
+                id="cD"
+                checked={state.cD}
                 onChange={(event) => {
-                  dispatch({ type: "rDT", value: event.target.value });
+                  dispatch({ type: "cD", value: event.target.checked });
                 }}
               />
             </td>
             <td>
-              <label htmlFor="rD">distance: </label>
+              <label htmlFor="cD">distance: </label>
             </td>
             <td>
               <input
@@ -58,18 +66,16 @@ export default function RCtable(props) {
           <tr>
             <td>
               <input
-                type="radio"
-                name="distTime"
-                id="rT"
-                value="time"
-                checked={state.rDT === "time"}
+                type="checkbox"
+                id="cT"
+                checked={state.cT}
                 onChange={(event) => {
-                  dispatch({ type: "rDT", value: event.target.value });
+                  dispatch({ type: "cT", value: event.target.checked });
                 }}
               />
             </td>
             <td>
-              <label htmlFor="rT">time: </label>
+              <label htmlFor="cT">time: </label>
             </td>
             <td>
               <input
@@ -98,7 +104,7 @@ export default function RCtable(props) {
             </td>
           </tr>
           <tr>
-            <td colspan="5" style={{height: 10}}></td>
+            <td colspan="5" style={{ height: 10 }}></td>
           </tr>
           <tr>
             <td> </td>
@@ -122,6 +128,7 @@ export default function RCtable(props) {
                 value={state.mSpeed}
                 max="10"
                 step="0.1"
+                disabled= {state.cD && state.cT}
                 marks={{ 0: 0, 3.3: 3.3, 10: 10 }}
                 onChange={(value) => {
                   dispatch({ type: "mSpeed", value: value });
@@ -151,6 +158,7 @@ export default function RCtable(props) {
                 value={state.kSpeed}
                 max="20"
                 step="0.1"
+                disabled= {state.cD && state.cT}
                 marks={{ 0: 0, 12: 12, 20: 20 }}
                 onChange={(value) => {
                   dispatch({ type: "kSpeed", value: value });
@@ -180,6 +188,7 @@ export default function RCtable(props) {
                 value={state.pace}
                 max="20"
                 step="0.1"
+                disabled= {state.cD && state.cT}
                 marks={{ 0: 0, 5: 5, 20: 20 }}
                 onChange={(value) => {
                   dispatch({ type: "pace", value: value });
@@ -188,7 +197,7 @@ export default function RCtable(props) {
             </td>
           </tr>
           <tr>
-          <td colspan="5" style={{height: 10}}></td>
+            <td colspan="5" style={{ height: 10 }}></td>
           </tr>
           <tr>
             <td>
@@ -279,7 +288,8 @@ export default function RCtable(props) {
       <p>
         You can use ArrowUp/Down to select input area.
         <br />
-        Use radioButtons to fix base data.<br/>
+        Use radioButtons to fix base data.
+        <br />
         Fix Cadense - fix distance & time.
       </p>
     </>
