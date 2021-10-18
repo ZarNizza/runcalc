@@ -8,6 +8,8 @@ export default function RCtable(props) {
 
   return (
     <>
+    <h1><span style={{color:"blueviolet"}} >RUN</span><span style={{color:"darkorange"}} >calc</span></h1>
+    <h2 style={{marginTop:"0"}}>Live Speed / Pace / Cadense corellation<br/><br/><br/></h2>
       <table className="runCalc">
         <caption>- Run Calc -</caption>
         <tbody>
@@ -96,7 +98,7 @@ export default function RCtable(props) {
             </td>
           </tr>
           <tr>
-            <td></td><td></td><td></td><td></td><td></td>
+            <td colspan="5" style={{height: 10}}></td>
           </tr>
           <tr>
             <td> </td>
@@ -186,7 +188,7 @@ export default function RCtable(props) {
             </td>
           </tr>
           <tr>
-            <td></td><td></td><td></td><td></td><td></td>
+          <td colspan="5" style={{height: 10}}></td>
           </tr>
           <tr>
             <td>
@@ -262,9 +264,9 @@ export default function RCtable(props) {
             <td className="sliderTD">
               <Slider
                 value={state.stepLength}
-                max="2"
+                max="1.5"
                 step="0.05"
-                marks={{ 0: 0, 1: 1, 2: 2 }}
+                marks={{ 0: 0, 1: 1, 1.5: 1.5 }}
                 onChange={(value) => {
                   dispatch({ type: "stepLength", value: value });
                 }}
@@ -275,9 +277,10 @@ export default function RCtable(props) {
       </table>
       <br />
       <p>
-        Use ArrowUp/Down to select input area.
+        You can use ArrowUp/Down to select input area.
         <br />
-        Use radioButtons to fix base data.
+        Use radioButtons to fix base data.<br/>
+        Fix Cadense - fix distance & time.
       </p>
     </>
   );

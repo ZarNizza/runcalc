@@ -45,7 +45,7 @@ border: 1px solid blueviolet;
 
 .runCalc caption {
   color: white;
-  background-color: blueviolet;
+  background-color: #8a2be2;
 }
 
 .sliderTD {
@@ -58,4 +58,15 @@ border: 1px solid blueviolet;
 }
 .rc-slider-handle {
   z-index: 99 !important;
+}
+
+h1 {
+  font-size: 4em;
+  margin-bottom: 0px;
+}
+h2 {
+  color: darkslategray;
+}
+h1, h2 {
+  text-align: center;
 }

@@ -84,15 +84,15 @@ function rCalc(state, action) {
       };
     }
     case "cadense": {
-      const kSpeed = isFinite(
+      const kSpeed = state.rCS === "cadense" ? state.kSpeed : (isFinite(
         Math.round((action.value * state.stepLength * 6) / 10) / 10
       )
         ? Math.round((action.value * state.stepLength * 6) / 10) / 10
-        : 0;
+        : 0);
       return {
         ...state,
-        dist: state.rDT === "time" ? dist(kSpeed, state.time) : state.dist,
-        time: state.rDT === "dist" ? time(kSpeed, state.dist) : state.time,
+        dist: state.rCS !== "cadense" && state.rDT === "time" ? dist(kSpeed, state.time) : state.dist,
+        time: state.rCS !== "cadense" && state.rDT === "dist" ? time(kSpeed, state.dist) : state.time,
         mSpeed: mSpeed(kSpeed),
         kSpeed: kSpeed,
         pace: pace(kSpeed),
