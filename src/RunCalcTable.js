@@ -1,6 +1,13 @@
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
+export function Foo(props) {
+  return (
+    <div>
+      Hello, {props.name?props.name : "MyFriend"}!
+    </div>
+  )
+}
 export default function RCtable(props) {
   const state = props.state;
   const dispatch = props.dispatch;

@@ -177,7 +177,7 @@ function dist(kSpeed, time) {
     : 0;
 }
 
-function time(kSpeed, dist) {
+export function time(kSpeed, dist) {
   return isFinite(Math.round((dist * 600) / kSpeed) / 10)
     ? Math.round((dist * 600) / kSpeed) / 10
     : 0;
