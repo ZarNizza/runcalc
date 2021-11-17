@@ -20,7 +20,7 @@ export default function RCtable(props) {
         <span className="colorDO noFat">calc</span>
       </h1>
       <h2 style={{ marginTop: "0" }}>
-        Live Speed / Pace / Cadense corellation
+        Live Speed / Pace / Cadence corellation
         <br />
         <br />
         <br />
@@ -220,7 +220,7 @@ export default function RCtable(props) {
               />
             </td>
             <td>
-              <label htmlFor="rC">cadense: </label>
+              <label htmlFor="rC">cadence: </label>
             </td>
             <td>
               <input
@@ -261,7 +261,7 @@ export default function RCtable(props) {
               />
             </td>
             <td>
-              <label htmlFor="rS">stepLength: </label>
+              <label htmlFor="rS">step length: </label>
             </td>
             <td>
               <input
